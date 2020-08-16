@@ -1,9 +1,14 @@
 <template>
   <div class="hello">
-    <h1>Jack Nolan</h1>
+    <h1>{{ welcomeText }}</h1>
     <h2>Jack's Cool test page - wowzers</h2>
     <button v-on:click="todoButton">todo button: {{ counter }}</button>
     <p v-if="showTodoTitle">{{ todoTitle }}</p>
+    <h3>Change the welcome text?</h3>
+    <input v-model="welcomeTextField">
+    <p>
+      <button v-on:click="persistWelcomeMessage">Save welcome message</button>
+    </p>
   </div>
 </template>
 
@@ -14,7 +19,14 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      counter: 0
+      counter: 0,
+      welcomeTextField: '',
+      welcomeText: 'Welcome!'
+    }
+  },
+  mounted () {
+    if (localStorage.welcomeText) {
+      this.welcomeText = localStorage.welcomeText
     }
   },
   computed: {
@@ -28,6 +40,10 @@ export default {
     todoButton: function () {
       this.getTodoTitle(this.counter)
       this.counter++
+    },
+    persistWelcomeMessage: function () {
+      this.welcomeText = this.welcomeTextField
+      localStorage.welcomeText = this.welcomeTextField
     }
   }
 }
@@ -36,6 +52,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin-top: 40px;
 }
 </style>
