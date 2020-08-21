@@ -32,7 +32,7 @@ export default {
   computed: {
     ...mapState(['todoTitle']),
     showTodoTitle: function () {
-      return this.todoTitle && this.todoTitle !== ''
+      return this.counter !== 0 && this.todoTitle && this.todoTitle !== ''
     }
   },
   methods: {
