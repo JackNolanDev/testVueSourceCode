@@ -1,5 +1,6 @@
 # vue-test
 
+quick vue test site / github pages test.
 Source code for https://jacknolandev.github.io/testVueWebsite/#/
 
 ## Project setup
