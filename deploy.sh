@@ -17,6 +17,6 @@ git add -A
 git commit -m "deploy $(date)"
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/nolanjac/testVueWebsite.git master
+git push -f https://github.com/JackNolanDev/testVueWebsite.git master
 
 cd ..
